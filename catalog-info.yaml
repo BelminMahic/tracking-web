@@ -7,3 +7,11 @@ spec:
   type: website
   lifecycle: production
   owner: tracking-team
+  catalog:
+    locations:
+      - type: url
+        target: https://github.com/BelminMahic/tracking-web/blob/main/example.yaml
+        rules:
+          - allow: [Template]
+      - type: file
+        target: example.yaml
