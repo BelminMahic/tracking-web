@@ -1,0 +1,26 @@
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
+metadata:
+  name: hello-world-template
+  title: Hello World
+  description: writing hello world
+spec:
+  owner: terroir-ops
+  type: service
+
+  parameters:
+    - title: Greetings message from Backstage
+      required:
+        - name
+      properties:
+        name:
+          type: string
+
+  steps:
+    - id: log-message
+      name: Log message
+      action: debug:log
+      input:
+        message: 'Hello, ${{ parameters.name }}'
+
+
