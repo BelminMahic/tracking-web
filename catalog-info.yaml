@@ -1,9 +1,26 @@
-apiVersion: backstage.io/v1alpha1
-kind: Component
+apiVersion: scaffolder.backstage.io/v1beta3
+kind: Template
 metadata:
-  name: terroir-tracking-web
-  description: Find where your bottle comes from
+  name: hello-world-template
+  title: Hello World
+  description: writing hello world
 spec:
-  type: website
-  lifecycle: production
-  owner: tracking-team
+  owner: terroir-ops
+  type: service
+
+  parameters:
+    - title: Greetings message from Backstage
+      required:
+        - name
+      properties:
+        name:
+          type: string
+
+  steps:
+    - id: log-message
+      name: Log message
+      action: debug:log
+      input:
+        message: 'Hello, ${{ parameters.name }}'
+
+
